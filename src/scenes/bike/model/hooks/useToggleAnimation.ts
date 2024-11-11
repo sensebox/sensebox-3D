@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as THREE from "three";
 
 export function useToggleAnimation(action: THREE.AnimationAction | null) {
   const [isReversed, setIsReversed] = useState(false);
-
-  useEffect(() => {
-    console.log("useToggleAnimation", action);
-  }, [action]);
 
   const toggleAnimation = () => {
     if (action) {
@@ -27,7 +23,6 @@ export function useToggleAnimation(action: THREE.AnimationAction | null) {
       action.play();
       setIsReversed(!isReversed);
     }
-    console.log("toggleAnimation", action);
   };
 
   return toggleAnimation;
