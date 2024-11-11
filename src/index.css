@@ -1,6 +1,32 @@
+/* Allgemeine Stile für die Seite */
 html,
 body,
 #root {
   height: 100%;
-  margin: unset;
+  margin: 0;
+  background-color: #000; /* Schwarzer Hintergrund für besseren Kontrast */
+  overflow: hidden;
+  font-family: Arial, sans-serif; /* Schriftart auf die gesamte Seite anwenden */
+}
+
+/* Stile für die Annotationen */
+.annotation {
+  transform: translate3d(calc(50%), calc(-50%), 0);
+  text-align: left;
+  background: #181c20;
+  color: #8c92a4;
+  padding: 10px 15px;
+  border-radius: 5px;
+  user-select: none;
+  font-family: var(--leva-fonts-mono);
+}
+
+.annotation::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  height: 2px;
+  width: 30px;
+  background: #181c20;
 }

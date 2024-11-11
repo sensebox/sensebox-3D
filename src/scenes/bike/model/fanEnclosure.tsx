@@ -10,8 +10,8 @@ export function FanEnclosure({ nodes, materials, ...props }: ModuleGroupProps) {
     >
       <mesh
         name="Filter"
-        castShadow
-        receiveShadow
+        castShadow={false}
+        receiveShadow={false}
         geometry={nodes.Filter.geometry}
         material={materials["ABS_(White)_3"]}
         position={[33.925, -4.025, -37.7]}
