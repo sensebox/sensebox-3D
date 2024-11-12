@@ -3,13 +3,13 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
+import { useToggleAnimation } from "../../../hooks/useToggleAnimation";
 import { Battery } from "./battery";
 import { Ble } from "./ble";
 import { Enclosure } from "./enclosure";
 import { Fan } from "./fan";
 import { FanEnclosure } from "./fanEnclosure";
 import { Hdc1080 } from "./hdc1080";
-import { useToggleAnimation } from "./hooks/useToggleAnimation";
 import { LevelBooster } from "./levelBooster";
 import { Lid } from "./lid";
 import { LipoMeshBoard } from "./lipoMeshBoard";
@@ -86,6 +86,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
             materials={materials}
             onClick={() => toggleLidAnimation()}
           />
+          {props.children}
         </group>
       </group>
     </group>

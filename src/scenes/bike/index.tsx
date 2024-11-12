@@ -1,6 +1,7 @@
 import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
+import Annotations from "./annotations";
 import { Model } from "./model";
 
 export default function BikeScene() {
@@ -21,7 +22,9 @@ export default function BikeScene() {
     >
       <Suspense fallback={null}>
         <Stage preset="portrait" intensity={0} environment="city">
-          <Model />
+          <Model>
+            <Annotations />
+          </Model>
         </Stage>
       </Suspense>
       <OrbitControls
