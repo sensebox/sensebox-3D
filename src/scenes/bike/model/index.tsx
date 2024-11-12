@@ -17,7 +17,6 @@ import { Mcu } from "./mcu";
 import { ToF } from "./tof";
 import { Materials } from "./types/materials";
 import { Nodes } from "./types/nodes";
-import { OutlineEffect } from "./utils/outline";
 
 type ActionName = "open lid" | "explode tof" | "explode hdc";
 interface GLTFAction extends THREE.AnimationClip {
@@ -63,13 +62,11 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           userData={{ name: "BikeBox+Mini+S2 (1)" }}
         >
           <Mcu nodes={nodes} materials={materials} />
-          <OutlineEffect enabled={true} auraColor={0x00ff00}>
-            <group onClick={() => toggleHdcAnimation()}>
-              <Hdc1080 nodes={nodes} materials={materials} />
-              <Fan nodes={nodes} materials={materials} />
-              <FanEnclosure nodes={nodes} materials={materials} />
-            </group>
-          </OutlineEffect>
+          <group onClick={() => toggleHdcAnimation()}>
+            <Hdc1080 nodes={nodes} materials={materials} />
+            <Fan nodes={nodes} materials={materials} />
+            <FanEnclosure nodes={nodes} materials={materials} />
+          </group>
 
           <Ble nodes={nodes} materials={materials} />
 
@@ -77,22 +74,18 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
 
           <LevelBooster nodes={nodes} materials={materials} />
           <LipoMeshBoard nodes={nodes} materials={materials} />
-          <OutlineEffect enabled={true} auraColor={0xff0000}>
-            <ToF
-              nodes={nodes}
-              materials={materials}
-              onClick={() => toggleTofAnimation()}
-            />
-          </OutlineEffect>
+          <ToF
+            nodes={nodes}
+            materials={materials}
+            onClick={() => toggleTofAnimation()}
+          />
           <Enclosure nodes={nodes} materials={materials} />
 
-          <OutlineEffect enabled={true} auraColor={0x0000ff}>
-            <Lid
-              nodes={nodes}
-              materials={materials}
-              onClick={() => toggleLidAnimation()}
-            />
-          </OutlineEffect>
+          <Lid
+            nodes={nodes}
+            materials={materials}
+            onClick={() => toggleLidAnimation()}
+          />
         </group>
       </group>
     </group>
