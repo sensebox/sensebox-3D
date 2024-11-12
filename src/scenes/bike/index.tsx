@@ -1,6 +1,7 @@
-import { OrbitControls, Stage } from "@react-three/drei";
+import { Html, OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
+import { BarLoader } from "react-spinners";
 import { Model } from "./model";
 
 export default function BikeScene() {
@@ -19,7 +20,13 @@ export default function BikeScene() {
         zoom: 0.5, // das ist für das verkleinert des bildes wichtig
       }}
     >
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <Html>
+            <BarLoader />
+          </Html>
+        }
+      >
         <Stage preset="portrait" intensity={0} environment="city">
           <Model />
         </Stage>
