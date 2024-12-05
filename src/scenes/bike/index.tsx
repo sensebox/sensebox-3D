@@ -10,14 +10,10 @@ export default function BikeScene() {
   return (
     <Canvas
       shadows
-      dpr={[1, 2]}
       camera={{
-        fov: 50,
-        position: [1, 1.9, -2],
-        near: 200,
-        far: 2000,
-        focus: 500,
-        zoom: 0.5, // das ist für das verkleinert des bildes wichtig
+        fov: 45,
+        position: [1, 2, -2],
+        zoom: 2,
       }}
     >
       <Suspense
@@ -27,17 +23,16 @@ export default function BikeScene() {
           </Html>
         }
       >
-        <Stage preset="portrait" intensity={0} environment="city">
+        <Stage intensity={0} adjustCamera={false}>
           <Model />
         </Stage>
       </Suspense>
       <OrbitControls
         ref={controlsRef}
         autoRotate={false}
-        minDistance={0.1}
-        maxDistance={9}
+        minDistance={0.2}
+        maxDistance={0.5}
         enableDamping={true}
-        dampingFactor={0.1}
       />
     </Canvas>
   );
