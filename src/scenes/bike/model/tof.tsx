@@ -1,8 +1,18 @@
+import { Edges } from "@react-three/drei";
+import { useState } from "react";
 import ModuleGroupProps from "./types/module";
 
 export function ToF({ nodes, materials, ...props }: ModuleGroupProps) {
+  const [hovered, hover] = useState(false);
+
   return (
-    <group name="ToF_V53L8CX" userData={{ name: "ToF V53L8CX" }} {...props}>
+    <group
+      name="ToF_V53L8CX"
+      userData={{ name: "ToF V53L8CX" }}
+      {...props}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}
+    >
       <mesh
         name="Buffer_Object_226"
         castShadow
@@ -47,7 +57,13 @@ export function ToF({ nodes, materials, ...props }: ModuleGroupProps) {
         material={materials["Plastic_-_Glossy_(Black)"]}
         rotation={[Math.PI / 2, 0, 0]}
         userData={{ name: "TPU Module - Distanz Sensor ToF V3" }}
-      />
+      >
+        <Edges
+          linewidth={hovered ? 4 : 0}
+          threshold={24}
+          color={hovered ? "#00ffff" : "black"}
+        />
+      </mesh>
     </group>
   );
 }

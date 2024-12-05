@@ -1,11 +1,17 @@
+import { Edges } from "@react-three/drei";
+import { useState } from "react";
 import ModuleGroupProps from "./types/module";
 
 export function Lid({ nodes, materials, ...props }: ModuleGroupProps) {
+  const [hovered, hover] = useState(false);
+
   return (
     <group
       name="Lid_with_modules"
       position={[0.25, -16.25, -40.75]}
       userData={{ name: "Lid with modules" }}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}
       {...props}
     >
       <mesh
@@ -129,7 +135,13 @@ export function Lid({ nodes, materials, ...props }: ModuleGroupProps) {
           position={[-0.25, 16.25, 40.75]}
           rotation={[Math.PI / 2, 0, 0]}
           userData={{ name: "TPU - Deckel mit Display" }}
-        />
+        >
+          <Edges
+            linewidth={hovered ? 4 : 0}
+            threshold={24}
+            color={hovered ? "#0000ff" : "black"}
+          />
+        </mesh>
       </group>
     </group>
   );
