@@ -2,14 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import BikeScene from "./scenes/bike";
+import Page from "../pages/page";
 
 const router = createBrowserRouter([
   {
     path: "bike",
     element: (
       <StrictMode>
-        <BikeScene />
+        <Page />
       </StrictMode>
     ),
   },
