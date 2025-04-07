@@ -1,8 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import BikeScene from "../src/scenes/bike";
 import FloatingButton from "../src/components/FloatingButton";
+import ARView from "../src/components/ar-viewer";
 
-const Page: React.FC = () => {
+export default function Page() {
+  const [showAR, setShowAR] = useState(false);
+
+  // Handler, um AR zu starten
+  const handleARButtonClick = () => {
+    setShowAR(true);
+  };
+
+  // Handler, um AR wieder zu verlassen
+  const handleExitAR = () => {
+    setShowAR(false);
+  };
+
   return (
     <div
       style={{
@@ -13,19 +26,36 @@ const Page: React.FC = () => {
         position: "relative",
       }}
     >
-      <BikeScene style={{ transform: "scale(1.2)" }} />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          left: "50%",
-          transform: "translateX(-50%)",
-        }}
-      >
-        <FloatingButton />
-      </div>
+      <BikeScene />
+
+      {/* FloatingButton nur anzeigen, wenn AR noch nicht aktiv ist */}
+      {!showAR && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        >
+          <FloatingButton
+            onClick={handleARButtonClick}
+            label="In deinem Raum ansehen"
+          />
+        </div>
+      )}
+
+      {/* ARView einblenden, wenn showAR true ist */}
+      {showAR && (
+        <ARView
+          modelPath="/gltf/bike/senseBox_bike.gltf"
+          rotationX={0}
+          rotationY={0}
+          rotationZ={0}
+          scale={1}
+          exitAR={handleExitAR}
+        />
+      )}
     </div>
   );
-};
-
-export default Page;
+}
