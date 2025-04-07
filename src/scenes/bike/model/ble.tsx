@@ -82,7 +82,8 @@ export function Ble({ nodes, materials, ...props }: ModuleGroupProps) {
           rotation={[Math.PI / 2, 0, 0]}
           userData={{ name: "Buffer Object" }}
         />
-        <mesh
+        {/* xbee label */}
+        {/* <mesh
           name="Buffer_Object_202"
           castShadow
           receiveShadow
@@ -90,7 +91,7 @@ export function Ble({ nodes, materials, ...props }: ModuleGroupProps) {
           material={materials["Opaque(230,235,235)"]}
           rotation={[Math.PI / 2, 0, 0]}
           userData={{ name: "Buffer Object" }}
-        />
+        /> */}
       </group>
       <mesh
         name="Body224_1"
