@@ -1,4 +1,3 @@
-import React from "react";
 import { BiCube } from "react-icons/bi";
 import ModelCard from "../src/components/ModelCard";
 import PlaceholderCard from "../src/components/PlaceholderCard";

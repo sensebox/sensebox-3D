@@ -1,4 +1,3 @@
-import React from "react";
 import { BiCube } from "react-icons/bi";
 
 export default function PlaceholderCard() {
