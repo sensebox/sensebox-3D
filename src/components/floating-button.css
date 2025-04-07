@@ -3,11 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 360px; /* Limit maximum width on larger screens */
 }
 
 .floating-button {
   display: flex;
   align-items: center;
+  justify-content: center; /* Center content horizontally */
   gap: 0.75rem;
   padding: 1rem 1.75rem;
   font-weight: 500;
@@ -21,14 +24,15 @@
   cursor: pointer;
   position: relative;
   z-index: 10;
-  /* Removed pulse animation since we're using Framer Motion for animations */
   will-change: transform, box-shadow;
+  width: 100%; /* Take full width of parent */
 }
 
 .ar-icon {
   width: 1.75rem;
   height: 1.75rem;
   color: #363738;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .ar-icon.size {
@@ -39,50 +43,36 @@
 
 .button-text {
   font-size: 1rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
 }
 
-/* Optimized shadow waves */
-.shadow-wave {
-  position: absolute;
-  border-radius: 9999px;
-  background-color: rgba(
-    54,
-    55,
-    56,
-    0.08
-  ); /* Changed to match text color #363738 */
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  will-change: transform, opacity, width, height;
-}
-
-.wave1 {
-  animation: button-wave 4s ease-out infinite;
-}
-
-.wave2 {
-  animation: button-wave 4s ease-out infinite 1.33s;
-}
-
-.wave3 {
-  animation: button-wave 4s ease-out infinite 2.66s;
-}
-
-@keyframes button-wave {
-  0% {
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    opacity: 0.5;
+/* Media queries for responsive design */
+@media (max-width: 480px) {
+  .floating-button {
+    padding: 0.75rem 1.25rem; /* Smaller padding on mobile */
+    gap: 0.5rem; /* Reduce gap between icon and text */
   }
-  50% {
-    opacity: 0.2;
+
+  .ar-icon.size {
+    width: 2rem; /* Slightly smaller icon on mobile */
+    height: 2rem;
   }
-  100% {
-    width: calc(100% + 120px);
-    height: calc(100% + 120px);
-    opacity: 0;
+
+  .button-text {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  .floating-button {
+    padding: 0.75rem 1rem;
+  }
+
+  .ar-icon.size {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
