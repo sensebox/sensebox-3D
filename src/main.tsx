@@ -34,7 +34,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import Page from "../pages/page";
-import HomePage from "../pages/home"; // Import the new component
+import HomePage from "../pages/home";
+import ARTestPage from "../pages/ar-test"; // Korrigierter Import-Pfad
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,14 @@ const router = createBrowserRouter([
     element: (
       <StrictMode>
         <Page />
+      </StrictMode>
+    ),
+  },
+  {
+    path: "ar-test",
+    element: (
+      <StrictMode>
+        <ARTestPage />
       </StrictMode>
     ),
   },

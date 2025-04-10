@@ -2,6 +2,7 @@ import { BiCube } from "react-icons/bi";
 import ModelCard from "../src/components/ModelCard";
 import PlaceholderCard from "../src/components/PlaceholderCard";
 import Footer from "../src/components/footer";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -27,7 +28,21 @@ export default function HomePage() {
               path="/bike"
             />
 
-            <PlaceholderCard />
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">AR-Test</h3>
+                <p className="text-gray-600 mb-4">
+                  Test the AR functionality with Google Model Viewer
+                </p>
+                <Link 
+                  to="/ar-test" 
+                  className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors duration-300"
+                >
+                  AR-Test starten
+                </Link>
+              </div>
+            </div>
+
             <PlaceholderCard />
           </div>
         </div>
