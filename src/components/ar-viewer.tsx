@@ -262,7 +262,7 @@ export const ARViewer: React.FC<ARViewerProps> = ({
     } catch (error) {
       console.error("Fehler beim Starten der AR-Session:", error);
     }
-  };
+  }, [arCapability, exitAR]);
 
   // iOS Quick Look AR starten
   const startIOSAR = React.useCallback(() => {
@@ -271,7 +271,7 @@ export const ARViewer: React.FC<ARViewerProps> = ({
     window.location.href = `${usdzPath}#allowsContentScaling=${scale * 10}`;
     // Hinweis: Wir können nicht zuverlässig erkennen, wenn der Benutzer AR verlässt in iOS
     // Daher müssen wir uns darauf verlassen, dass der Benutzer zurücknavigiert
-  };
+  }, [iosSrc, scale]);
 
   // AR starten basierend auf Gerättyp
   // Removed unused startAR function
