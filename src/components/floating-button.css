@@ -1,0 +1,78 @@
+.button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 360px; /* Limit maximum width on larger screens */
+}
+
+.floating-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  font-weight: 500;
+  color: #363738;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow:
+    0 10px 15px -3px rgba(59, 130, 246, 0.3),
+    0 4px 6px -2px rgba(59, 130, 246, 0.2);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  will-change: transform, box-shadow;
+  width: 100%; /* Take full width of parent */
+}
+
+.ar-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #363738;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.ar-icon.size {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #363738;
+}
+
+.button-text {
+  font-size: 1rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 480px) {
+  .floating-button {
+    padding: 0.75rem 1.25rem; /* Smaller padding on mobile */
+    gap: 0.5rem; /* Reduce gap between icon and text */
+  }
+
+  .ar-icon.size {
+    width: 2rem; /* Slightly smaller icon on mobile */
+    height: 2rem;
+  }
+
+  .button-text {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  .floating-button {
+    padding: 0.75rem 1rem;
+  }
+
+  .ar-icon.size {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
