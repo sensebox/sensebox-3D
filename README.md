@@ -2,6 +2,8 @@
 
 senseBox:3D is a website that renders senseBox 3D models using React Three Fiber.
 
+https://3d.sensebox.de/
+
 ## Installation
 
 To install the dependencies, run:
