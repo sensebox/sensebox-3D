@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import BikeScene from "./scenes/bike";
+import ModelViewer from "./components/model-viewer";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,14 @@ const router = createBrowserRouter([
     element: (
       <StrictMode>
         <BikeScene />
+      </StrictMode>
+    ),
+  },
+  {
+    path: "bike-ar",
+    element: (
+      <StrictMode>
+        <ModelViewer />
       </StrictMode>
     ),
   },
